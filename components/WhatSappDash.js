@@ -15,7 +15,7 @@ const WhatSappDash = () => {
     try {
       check = true;
       console.log("check 1",check)
-      const response = await fetch('http://localhost:4000/api/generateQRCode');
+      const response = await fetch('http://62.72.7.33:3000/api/generateQRCode');
       
       const data = await response.json();
       check = false;
@@ -40,7 +40,7 @@ const WhatSappDash = () => {
 
   const handleQR = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/generateQRCode');
+      const response = await fetch('http://62.72.7.33:4000/api/generateQRCode');
       const data = await response.json();
       setQrText(data.qr);
       // Guardar el código QR en localStorage
@@ -59,7 +59,7 @@ const WhatSappDash = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/logoutWhats');
+      const response = await fetch('http://62.72.7.33:4000/api/logoutWhats');
       const data = await response.json();
       setWhatsappState(data.state);
       setQrText('');

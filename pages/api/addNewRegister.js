@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     try {
       // Ejemplo de inserción en la tabla "registros" utilizando la función sql
       const result = await sql`INSERT INTO registros (nombre, telefono, email, direccion, red_social, usuario_id, seccional) VALUES (${nombre}, ${telefono}, ${email}, ${direccion}, ${red_social}, ${usuario_id}, ${seccional})`;
-      const response = await fetch(`http://localhost:4000/api/EnviarMensaje?nombre=${nombre}&telefono=${telefono}`);
+      const response = await fetch(`http://62.72.7.33:4000/api/EnviarMensaje?nombre=${nombre}&telefono=${telefono}`);
       const data = await response.json();
       const message = data.message;
       res.status(200).json({ message: message});

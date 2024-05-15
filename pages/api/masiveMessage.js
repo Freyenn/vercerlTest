@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       }));
 
       // Realizar la solicitud al endpoint del backend para envío masivo
-      const response = await fetch('http://localhost:4000/api/EnviarMensajesMasivos', {
+      const response = await fetch('http://62.72.7.33:4000/api/EnviarMensajesMasivos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
