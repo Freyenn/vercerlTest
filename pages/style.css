@@ -1,0 +1,64 @@
+
+  /* Estilo del cuerpo de la página */
+body {
+  background-color: #f0f0f0; /* Color de fondo personalizado */
+  margin: 0; /* Eliminar márgenes predeterminados */
+  padding: 0; /* Eliminar relleno predeterminado */
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+}
+
+/* Estilo del login */
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30vh; /* Centrar verticalmente */
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input {
+  width: calc(100% - 20px); /* Restar el ancho del margen de ambos lados */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px; /* Margen derecho uniforme */
+}
+
+button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: calc(10px + 0.5vw);
+}
+
+button:hover {
+  background-color: #005bac;
+}
+
+.warning {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+
