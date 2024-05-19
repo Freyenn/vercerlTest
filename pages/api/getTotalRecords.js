@@ -4,10 +4,17 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       // Obtener el ID de usuario de la solicitud
+      let result;
       const { userId } = req.query;
-
-      // Realizar la consulta para obtener la cantidad total de registros del usuario
-      const result = await sql`SELECT COUNT(*) FROM registros WHERE usuario_id = ${userId}`;
+      console.log("userId get total",userId);
+      if(userId == 'all'){
+          // Realizar la consulta para obtener la cantidad total de registros del usuario
+           result = await sql`SELECT COUNT(*) FROM registros`;
+      } else {
+        // Realizar la consulta para obtener la cantidad total de registros del usuario
+       result = await sql`SELECT COUNT(*) FROM registros WHERE usuario_id = ${userId}`;
+      }
+      
 
       // Extraer el conteo de la consulta
       const totalRecordsCount = result.rows[0].count;

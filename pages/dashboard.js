@@ -7,6 +7,7 @@ import UserDashboard from '../components/UserDashboard';
 import UserRecordsTable from '../components/UserRecordsTable';
 import ShowRegisters from '../components/ShowRegisters';
 import WhatSappDash from '../components/WhatSappDash';
+import ShowAllRegisters from '../components/ShowAllRegisters';
 export default function Dashboard() {
   // Definimos un estado para almacenar los datos del usuario
   const [usuario, setUsuario] = useState(null);
@@ -35,7 +36,12 @@ export default function Dashboard() {
         setComponenteCentral(<AdminUsers />);
         break;
       case 'registros':
-        setComponenteCentral(<ShowRegisters/>);
+        if(usuario.nivel == 1){
+          setComponenteCentral(<ShowRegisters/>);
+        } else if ( usuario.nivel == 2 ){
+          setComponenteCentral(<ShowAllRegisters/>);
+        }
+        
         break;
       case 'exportar':
         setComponenteCentral(<h1>En Desarrollo ff</h1>);

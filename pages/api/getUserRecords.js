@@ -16,25 +16,46 @@ export default async function handler(req, res) {
       var offset = (parseInt(page) - 1) * parseInt(perPage);
       
       // Realizar la consulta para obtener los registros del usuario con paginación y ordenamiento
-      if(sort === 'desc'){
-        const { rows } = await sql`
-        SELECT * FROM registros
-        WHERE usuario_id = ${userId}
-        ORDER BY id ASC
-        LIMIT ${perPage} OFFSET ${offset}
-      `;
-      // Enviar los registros obtenidos como respuesta
-      res.status(200).json(rows);
+      if(userId!=='all'){
+        if(sort === 'desc'){
+          const { rows } = await sql`
+          SELECT * FROM registros
+          WHERE usuario_id = ${userId}
+          ORDER BY id ASC
+          LIMIT ${perPage} OFFSET ${offset}
+        `;
+        // Enviar los registros obtenidos como respuesta
+        res.status(200).json(rows);
+        } else {
+          const { rows } = await sql`
+          SELECT * FROM registros
+          WHERE usuario_id = ${userId}
+          ORDER BY id DESC
+          LIMIT ${perPage} OFFSET ${offset}
+        `;
+        // Enviar los registros obtenidos como respuesta
+        res.status(200).json(rows);
+        }
       } else {
-        const { rows } = await sql`
-        SELECT * FROM registros
-        WHERE usuario_id = ${userId}
-        ORDER BY id DESC
-        LIMIT ${perPage} OFFSET ${offset}
-      `;
-      // Enviar los registros obtenidos como respuesta
-      res.status(200).json(rows);
+        if(sort === 'desc'){
+          const { rows } = await sql`
+          SELECT * FROM registros
+          ORDER BY id ASC
+          LIMIT ${perPage} OFFSET ${offset}
+        `;
+        // Enviar los registros obtenidos como respuesta
+        res.status(200).json(rows);
+        } else {
+          const { rows } = await sql`
+          SELECT * FROM registros
+          ORDER BY id DESC
+          LIMIT ${perPage} OFFSET ${offset}
+        `;
+        // Enviar los registros obtenidos como respuesta
+        res.status(200).json(rows);
+        }
       }
+        
       
 
       
