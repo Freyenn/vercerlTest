@@ -15,7 +15,7 @@ const WhatSappDash = () => {
     try {
       check = true;
       console.log("check 1",check)
-      const response = await fetch('http://62.72.7.33:3000/api/generateQRCode');
+      const response = await fetch('http://62.72.7.33:4000/api/generateQRCode');
       
       const data = await response.json();
       check = false;
